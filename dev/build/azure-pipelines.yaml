@@ -4,13 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  - master
+  - dev
     
 pool:
   vmImage: 'ubuntu-latest'
   
 variables:
-  solution: 'main/src/AzureMvcApp/*.sln'
+  solution: 'dev/src/AzureMvcApp-dev/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
     
@@ -23,7 +23,7 @@ steps:
   displayName: 'Build Project'
   inputs:
     command: 'build'
-    projects: 'main/src/AzureMvcApp/*.csproj'
+    projects: 'main/src/AzureMvcApp-dev/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
   
 - task: DotNetCoreCLI@2
