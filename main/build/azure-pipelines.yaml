@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
   
 variables:
-  solution: 'src/MCDA_Project.Server/*.sln'
+  solution: 'main/src/AzureMvcApp/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
     
@@ -23,7 +23,7 @@ steps:
   displayName: 'Build Project'
   inputs:
     command: 'build'
-    projects: 'src/MCDA_Project.Server/*.csproj'
+    projects: 'main/src/AzureMvcApp/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
   
 - task: DotNetCoreCLI@2
